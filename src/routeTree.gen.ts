@@ -10,33 +10,254 @@
 
 import { Route as rootRouteImport } from './routes/__root'
 import { Route as IndexRouteImport } from './routes/index'
+import { Route as AdminRouteImport } from './routes/admin'
+import { Route as AppRouteImport } from './routes/app'
+import { Route as AuthRouteImport } from './routes/auth'
+import { Route as NotificationsRouteImport } from './routes/notifications'
+import { Route as WorkerRouteImport } from './routes/worker'
+import { Route as AppIndexRouteImport } from './routes/app/index'
+import { Route as AppBookRouteImport } from './routes/app/book'
+import { Route as AppBookingsRouteImport } from './routes/app/bookings'
+import { Route as AppEmergencyRouteImport } from './routes/app/emergency'
+import { Route as AppMessagesRouteImport } from './routes/app/messages'
+import { Route as AppProfileRouteImport } from './routes/app/profile'
+import { Route as AppServicesRouteImport } from './routes/app/services'
+import { Route as WorkerIndexRouteImport } from './routes/worker/index'
+import { Route as WorkerEarningsRouteImport } from './routes/worker/earnings'
+import { Route as WorkerJobsRouteImport } from './routes/worker/jobs'
+import { Route as WorkerProfileRouteImport } from './routes/worker/profile'
+import { Route as WorkerWelfareRouteImport } from './routes/worker/welfare'
+import { Route as AppWorkersWorkerIdRouteImport } from './routes/app/workers.$workerId'
 
 const IndexRoute = IndexRouteImport.update({
   id: '/',
   path: '/',
   getParentRoute: () => rootRouteImport,
 } as any)
+const AdminRoute = AdminRouteImport.update({
+  id: '/admin',
+  path: '/admin',
+  getParentRoute: () => rootRouteImport,
+} as any)
+const AppRoute = AppRouteImport.update({
+  id: '/app',
+  path: '/app',
+  getParentRoute: () => rootRouteImport,
+} as any)
+const AuthRoute = AuthRouteImport.update({
+  id: '/auth',
+  path: '/auth',
+  getParentRoute: () => rootRouteImport,
+} as any)
+const NotificationsRoute = NotificationsRouteImport.update({
+  id: '/notifications',
+  path: '/notifications',
+  getParentRoute: () => rootRouteImport,
+} as any)
+const WorkerRoute = WorkerRouteImport.update({
+  id: '/worker',
+  path: '/worker',
+  getParentRoute: () => rootRouteImport,
+} as any)
+const AppIndexRoute = AppIndexRouteImport.update({
+  id: '/',
+  path: '/',
+  getParentRoute: () => AppRoute,
+} as any)
+const AppBookRoute = AppBookRouteImport.update({
+  id: '/book',
+  path: '/book',
+  getParentRoute: () => AppRoute,
+} as any)
+const AppBookingsRoute = AppBookingsRouteImport.update({
+  id: '/bookings',
+  path: '/bookings',
+  getParentRoute: () => AppRoute,
+} as any)
+const AppEmergencyRoute = AppEmergencyRouteImport.update({
+  id: '/emergency',
+  path: '/emergency',
+  getParentRoute: () => AppRoute,
+} as any)
+const AppMessagesRoute = AppMessagesRouteImport.update({
+  id: '/messages',
+  path: '/messages',
+  getParentRoute: () => AppRoute,
+} as any)
+const AppProfileRoute = AppProfileRouteImport.update({
+  id: '/profile',
+  path: '/profile',
+  getParentRoute: () => AppRoute,
+} as any)
+const AppServicesRoute = AppServicesRouteImport.update({
+  id: '/services',
+  path: '/services',
+  getParentRoute: () => AppRoute,
+} as any)
+const WorkerIndexRoute = WorkerIndexRouteImport.update({
+  id: '/',
+  path: '/',
+  getParentRoute: () => WorkerRoute,
+} as any)
+const WorkerEarningsRoute = WorkerEarningsRouteImport.update({
+  id: '/earnings',
+  path: '/earnings',
+  getParentRoute: () => WorkerRoute,
+} as any)
+const WorkerJobsRoute = WorkerJobsRouteImport.update({
+  id: '/jobs',
+  path: '/jobs',
+  getParentRoute: () => WorkerRoute,
+} as any)
+const WorkerProfileRoute = WorkerProfileRouteImport.update({
+  id: '/profile',
+  path: '/profile',
+  getParentRoute: () => WorkerRoute,
+} as any)
+const WorkerWelfareRoute = WorkerWelfareRouteImport.update({
+  id: '/welfare',
+  path: '/welfare',
+  getParentRoute: () => WorkerRoute,
+} as any)
+const AppWorkersWorkerIdRoute = AppWorkersWorkerIdRouteImport.update({
+  id: '/workers/$workerId',
+  path: '/workers/$workerId',
+  getParentRoute: () => AppRoute,
+} as any)
 
 export interface FileRoutesByFullPath {
   '/': typeof IndexRoute
+  '/admin': typeof AdminRoute
+  '/app': typeof AppRouteWithChildren
+  '/auth': typeof AuthRoute
+  '/notifications': typeof NotificationsRoute
+  '/worker': typeof WorkerRouteWithChildren
+  '/app/book': typeof AppBookRoute
+  '/app/bookings': typeof AppBookingsRoute
+  '/app/emergency': typeof AppEmergencyRoute
+  '/app/messages': typeof AppMessagesRoute
+  '/app/profile': typeof AppProfileRoute
+  '/app/services': typeof AppServicesRoute
+  '/worker/earnings': typeof WorkerEarningsRoute
+  '/worker/jobs': typeof WorkerJobsRoute
+  '/worker/profile': typeof WorkerProfileRoute
+  '/worker/welfare': typeof WorkerWelfareRoute
+  '/app/': typeof AppIndexRoute
+  '/worker/': typeof WorkerIndexRoute
+  '/app/workers/$workerId': typeof AppWorkersWorkerIdRoute
 }
 export interface FileRoutesByTo {
   '/': typeof IndexRoute
+  '/admin': typeof AdminRoute
+  '/auth': typeof AuthRoute
+  '/notifications': typeof NotificationsRoute
+  '/app/book': typeof AppBookRoute
+  '/app/bookings': typeof AppBookingsRoute
+  '/app/emergency': typeof AppEmergencyRoute
+  '/app/messages': typeof AppMessagesRoute
+  '/app/profile': typeof AppProfileRoute
+  '/app/services': typeof AppServicesRoute
+  '/worker/earnings': typeof WorkerEarningsRoute
+  '/worker/jobs': typeof WorkerJobsRoute
+  '/worker/profile': typeof WorkerProfileRoute
+  '/worker/welfare': typeof WorkerWelfareRoute
+  '/app': typeof AppIndexRoute
+  '/worker': typeof WorkerIndexRoute
+  '/app/workers/$workerId': typeof AppWorkersWorkerIdRoute
 }
 export interface FileRoutesById {
   __root__: typeof rootRouteImport
   '/': typeof IndexRoute
+  '/admin': typeof AdminRoute
+  '/app': typeof AppRouteWithChildren
+  '/auth': typeof AuthRoute
+  '/notifications': typeof NotificationsRoute
+  '/worker': typeof WorkerRouteWithChildren
+  '/app/book': typeof AppBookRoute
+  '/app/bookings': typeof AppBookingsRoute
+  '/app/emergency': typeof AppEmergencyRoute
+  '/app/messages': typeof AppMessagesRoute
+  '/app/profile': typeof AppProfileRoute
+  '/app/services': typeof AppServicesRoute
+  '/worker/earnings': typeof WorkerEarningsRoute
+  '/worker/jobs': typeof WorkerJobsRoute
+  '/worker/profile': typeof WorkerProfileRoute
+  '/worker/welfare': typeof WorkerWelfareRoute
+  '/app/': typeof AppIndexRoute
+  '/worker/': typeof WorkerIndexRoute
+  '/app/workers/$workerId': typeof AppWorkersWorkerIdRoute
 }
 export interface FileRouteTypes {
   fileRoutesByFullPath: FileRoutesByFullPath
-  fullPaths: '/'
+  fullPaths:
+    | '/'
+    | '/admin'
+    | '/app'
+    | '/auth'
+    | '/notifications'
+    | '/worker'
+    | '/app/book'
+    | '/app/bookings'
+    | '/app/emergency'
+    | '/app/messages'
+    | '/app/profile'
+    | '/app/services'
+    | '/worker/earnings'
+    | '/worker/jobs'
+    | '/worker/profile'
+    | '/worker/welfare'
+    | '/app/'
+    | '/worker/'
+    | '/app/workers/$workerId'
   fileRoutesByTo: FileRoutesByTo
-  to: '/'
-  id: '__root__' | '/'
+  to:
+    | '/'
+    | '/admin'
+    | '/auth'
+    | '/notifications'
+    | '/app/book'
+    | '/app/bookings'
+    | '/app/emergency'
+    | '/app/messages'
+    | '/app/profile'
+    | '/app/services'
+    | '/worker/earnings'
+    | '/worker/jobs'
+    | '/worker/profile'
+    | '/worker/welfare'
+    | '/app'
+    | '/worker'
+    | '/app/workers/$workerId'
+  id:
+    | '__root__'
+    | '/'
+    | '/admin'
+    | '/app'
+    | '/auth'
+    | '/notifications'
+    | '/worker'
+    | '/app/book'
+    | '/app/bookings'
+    | '/app/emergency'
+    | '/app/messages'
+    | '/app/profile'
+    | '/app/services'
+    | '/worker/earnings'
+    | '/worker/jobs'
+    | '/worker/profile'
+    | '/worker/welfare'
+    | '/app/'
+    | '/worker/'
+    | '/app/workers/$workerId'
   fileRoutesById: FileRoutesById
 }
 export interface RootRouteChildren {
   IndexRoute: typeof IndexRoute
+  AdminRoute: typeof AdminRoute
+  AppRoute: typeof AppRouteWithChildren
+  AuthRoute: typeof AuthRoute
+  NotificationsRoute: typeof NotificationsRoute
+  WorkerRoute: typeof WorkerRouteWithChildren
 }
 
 declare module '@tanstack/react-router' {
@@ -48,11 +269,185 @@ declare module '@tanstack/react-router' {
       preLoaderRoute: typeof IndexRouteImport
       parentRoute: typeof rootRouteImport
     }
+    '/admin': {
+      id: '/admin'
+      path: '/admin'
+      fullPath: '/admin'
+      preLoaderRoute: typeof AdminRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/app': {
+      id: '/app'
+      path: '/app'
+      fullPath: '/app'
+      preLoaderRoute: typeof AppRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/auth': {
+      id: '/auth'
+      path: '/auth'
+      fullPath: '/auth'
+      preLoaderRoute: typeof AuthRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/notifications': {
+      id: '/notifications'
+      path: '/notifications'
+      fullPath: '/notifications'
+      preLoaderRoute: typeof NotificationsRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/worker': {
+      id: '/worker'
+      path: '/worker'
+      fullPath: '/worker'
+      preLoaderRoute: typeof WorkerRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/app/': {
+      id: '/app/'
+      path: '/'
+      fullPath: '/app/'
+      preLoaderRoute: typeof AppIndexRouteImport
+      parentRoute: typeof AppRoute
+    }
+    '/app/book': {
+      id: '/app/book'
+      path: '/book'
+      fullPath: '/app/book'
+      preLoaderRoute: typeof AppBookRouteImport
+      parentRoute: typeof AppRoute
+    }
+    '/app/bookings': {
+      id: '/app/bookings'
+      path: '/bookings'
+      fullPath: '/app/bookings'
+      preLoaderRoute: typeof AppBookingsRouteImport
+      parentRoute: typeof AppRoute
+    }
+    '/app/emergency': {
+      id: '/app/emergency'
+      path: '/emergency'
+      fullPath: '/app/emergency'
+      preLoaderRoute: typeof AppEmergencyRouteImport
+      parentRoute: typeof AppRoute
+    }
+    '/app/messages': {
+      id: '/app/messages'
+      path: '/messages'
+      fullPath: '/app/messages'
+      preLoaderRoute: typeof AppMessagesRouteImport
+      parentRoute: typeof AppRoute
+    }
+    '/app/profile': {
+      id: '/app/profile'
+      path: '/profile'
+      fullPath: '/app/profile'
+      preLoaderRoute: typeof AppProfileRouteImport
+      parentRoute: typeof AppRoute
+    }
+    '/app/services': {
+      id: '/app/services'
+      path: '/services'
+      fullPath: '/app/services'
+      preLoaderRoute: typeof AppServicesRouteImport
+      parentRoute: typeof AppRoute
+    }
+    '/worker/': {
+      id: '/worker/'
+      path: '/'
+      fullPath: '/worker/'
+      preLoaderRoute: typeof WorkerIndexRouteImport
+      parentRoute: typeof WorkerRoute
+    }
+    '/worker/earnings': {
+      id: '/worker/earnings'
+      path: '/earnings'
+      fullPath: '/worker/earnings'
+      preLoaderRoute: typeof WorkerEarningsRouteImport
+      parentRoute: typeof WorkerRoute
+    }
+    '/worker/jobs': {
+      id: '/worker/jobs'
+      path: '/jobs'
+      fullPath: '/worker/jobs'
+      preLoaderRoute: typeof WorkerJobsRouteImport
+      parentRoute: typeof WorkerRoute
+    }
+    '/worker/profile': {
+      id: '/worker/profile'
+      path: '/profile'
+      fullPath: '/worker/profile'
+      preLoaderRoute: typeof WorkerProfileRouteImport
+      parentRoute: typeof WorkerRoute
+    }
+    '/worker/welfare': {
+      id: '/worker/welfare'
+      path: '/welfare'
+      fullPath: '/worker/welfare'
+      preLoaderRoute: typeof WorkerWelfareRouteImport
+      parentRoute: typeof WorkerRoute
+    }
+    '/app/workers/$workerId': {
+      id: '/app/workers/$workerId'
+      path: '/workers/$workerId'
+      fullPath: '/app/workers/$workerId'
+      preLoaderRoute: typeof AppWorkersWorkerIdRouteImport
+      parentRoute: typeof AppRoute
+    }
   }
 }
 
+interface AppRouteChildren {
+  AppBookRoute: typeof AppBookRoute
+  AppBookingsRoute: typeof AppBookingsRoute
+  AppEmergencyRoute: typeof AppEmergencyRoute
+  AppMessagesRoute: typeof AppMessagesRoute
+  AppProfileRoute: typeof AppProfileRoute
+  AppServicesRoute: typeof AppServicesRoute
+  AppIndexRoute: typeof AppIndexRoute
+  AppWorkersWorkerIdRoute: typeof AppWorkersWorkerIdRoute
+}
+
+const AppRouteChildren: AppRouteChildren = {
+  AppBookRoute: AppBookRoute,
+  AppBookingsRoute: AppBookingsRoute,
+  AppEmergencyRoute: AppEmergencyRoute,
+  AppMessagesRoute: AppMessagesRoute,
+  AppProfileRoute: AppProfileRoute,
+  AppServicesRoute: AppServicesRoute,
+  AppIndexRoute: AppIndexRoute,
+  AppWorkersWorkerIdRoute: AppWorkersWorkerIdRoute,
+}
+
+const AppRouteWithChildren = AppRoute._addFileChildren(AppRouteChildren)
+
+interface WorkerRouteChildren {
+  WorkerEarningsRoute: typeof WorkerEarningsRoute
+  WorkerJobsRoute: typeof WorkerJobsRoute
+  WorkerProfileRoute: typeof WorkerProfileRoute
+  WorkerWelfareRoute: typeof WorkerWelfareRoute
+  WorkerIndexRoute: typeof WorkerIndexRoute
+}
+
+const WorkerRouteChildren: WorkerRouteChildren = {
+  WorkerEarningsRoute: WorkerEarningsRoute,
+  WorkerJobsRoute: WorkerJobsRoute,
+  WorkerProfileRoute: WorkerProfileRoute,
+  WorkerWelfareRoute: WorkerWelfareRoute,
+  WorkerIndexRoute: WorkerIndexRoute,
+}
+
+const WorkerRouteWithChildren =
+  WorkerRoute._addFileChildren(WorkerRouteChildren)
+
 const rootRouteChildren: RootRouteChildren = {
   IndexRoute: IndexRoute,
+  AdminRoute: AdminRoute,
+  AppRoute: AppRouteWithChildren,
+  AuthRoute: AuthRoute,
+  NotificationsRoute: NotificationsRoute,
+  WorkerRoute: WorkerRouteWithChildren,
 }
 export const routeTree = rootRouteImport
   ._addFileChildren(rootRouteChildren)
